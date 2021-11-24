@@ -29,18 +29,17 @@ numbers_needed <- function(verbose = TRUE) {
 }
 
 
-
-numbers_needed()
-
+for (i in 1:1000) numbers_needed(verbose=T)
 
 
 
 
-numbers_needed_sim <- function(reps = 1000) {
+
+numbers_needed_sim <- function(reps = 10000, FUN) {
   
   count <- numeric(reps)
   
-  for (i in 1:reps) count[i] <- numbers_needed(verbose = F)
+  for (i in 1:reps) count[i] <- FUN()
   
   class(count) <- "numbers_needed_sim"
   count
@@ -49,15 +48,16 @@ numbers_needed_sim <- function(reps = 1000) {
 
 
 
-numbers_needed_sim()
+numbers_needed_sim(FUN = function() numbers_needed(verbose = FALSE))
 
 
 
 
 print.numbers_needed_sim <- function(x) {
   
-  print(prop.table(table(x)))
+  print(prop.table(x))
   
 }
 
-numbers_needed_sim()
+nns <- numbers_needed_sim()
+nns   # silently calls print...
