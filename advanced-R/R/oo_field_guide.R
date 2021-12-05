@@ -101,6 +101,8 @@ isS4(phone_call)
 # Use rather R6 than RC (below) -------------------------------------------
 # https://adv-r.hadley.nz/r6.html#r6
 
+# see separate file
+
 # RC ----
 # Methods belong to objects (standard OO kind of way)
 # Best used for describing stateful objects (i.e. objects that change over time)
